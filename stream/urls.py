@@ -9,5 +9,4 @@ urlpatterns = [
     path('streams/<int:pk>/join/', JoinStreamView.as_view(), name='join-stream'),
     path('end_stream/<int:stream_id>/', EndStreamView.as_view(), name='end_stream'),
     path('leave_stream/<int:stream_id>/', LeaveStreamView.as_view(), name='leave_stream'),
-
 ]
