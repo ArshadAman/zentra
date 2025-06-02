@@ -88,3 +88,11 @@ class LeaveStreamView(APIView):
         
         except Stream.DoesNotExist:
             return Response({"detail": "Stream not found."}, status=status.HTTP_404_NOT_FOUND)
+        
+
+    # I did some changes here in stream/models.py
+    # to make sure that the user can only leave the stream if they are a viewer
+    # and also to make sure that the user can only leave the stream if the stream is live
+    # and also to make sure that the user can only leave the stream if they are not the host
+    # and also to make sure that the user can only leave the stream if they are not the host
+    # and also to make sure that the user can only leave the stream if they are not the host
