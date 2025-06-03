@@ -29,4 +29,17 @@ class StreamViewer(models.Model):
 
     class Meta:
         unique_together = ('stream', 'user')  # Prevent duplicate joins
+
+
+class CameraAngle(models.Model):
+    stream = models.ForeignKey(Stream,on_delete=models.CASCADE,related_name='camera_angles')
+    angle_name = models.CharField(max_length=100)
+    angle_description = models.TextField(blank=True,null=True)
+    camera_url = models.URLField() #separate url for eachc camera
+    
+    
+    def __str__(self):
+        return f"{self.angle_name}-{self.stream.title}"
+    
+    
         
