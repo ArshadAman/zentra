@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions
-from .models import Stream, StreamViewer
-from .serializers import StreamSerializer
-from rest_framework import status
+from .models import Stream, StreamViewer,CameraAngle
+from .serializers import StreamSerializer,CameraAngleSerializer
+from rest_framework import status,viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -96,3 +96,8 @@ class LeaveStreamView(APIView):
     # and also to make sure that the user can only leave the stream if they are not the host
     # and also to make sure that the user can only leave the stream if they are not the host
     # and also to make sure that the user can only leave the stream if they are not the host
+    
+    
+class CameraAngleView(viewsets.ModelViewSet):
+    queryset = CameraAngle.objects.all()
+    serializer_class = CameraAngleSerializer
